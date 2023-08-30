@@ -11,7 +11,7 @@ import lombok.Setter;
 @Data
 @Table(name = "school")
 public class School {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer schoolId;
