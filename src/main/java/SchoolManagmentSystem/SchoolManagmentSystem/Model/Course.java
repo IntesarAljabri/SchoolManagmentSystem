@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
@@ -17,4 +19,10 @@ public class Course {
     Integer courseId;
     String courseName;
 
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Mark> marks;
+
+    @ManyToOne
+    @JoinColumn(name = "schoolId")
+    private School school;
 }
