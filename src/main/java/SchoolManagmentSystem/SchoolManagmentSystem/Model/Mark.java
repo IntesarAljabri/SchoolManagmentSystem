@@ -1,7 +1,6 @@
 package SchoolManagmentSystem.SchoolManagmentSystem.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +11,8 @@ import lombok.Setter;
 @Data
 @Table(name = "mark")
 public class Mark {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer markId;
     String grade;
 }
