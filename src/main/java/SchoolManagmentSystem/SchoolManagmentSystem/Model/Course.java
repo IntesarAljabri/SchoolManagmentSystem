@@ -20,9 +20,9 @@ public class Course {
     String courseName;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    private List<Mark> marks;
+     List<Mark> marks;
 
     @ManyToOne
-    @JoinColumn(name = "schoolId")
-    private School school;
+    @JoinColumn(name = "school-id")
+     School school;
 }

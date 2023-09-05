@@ -17,13 +17,13 @@ public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer schoolId;
-
     String schoolName;
 
 
     @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
-    private List<Student> students;
+    List<Student> students;
 
     @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
-    private List<Course> courses;
+    List<Course> courses;
+
 }

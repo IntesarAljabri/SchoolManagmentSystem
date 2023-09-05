@@ -13,14 +13,15 @@ import lombok.Setter;
 public class Mark {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Double markId;
-    String grade;
+    private Long id;
+    private Double courseMark;
+    private String grade;
 
     @ManyToOne
-    @JoinColumn(name = "studentId")
-    private Student student;
+    @JoinColumn(name = "student-id")
+    Student student;
 
     @ManyToOne
-    @JoinColumn(name = "courseId")
-    private Course course;
+    @JoinColumn(name = "course-id")
+    Course course;
 }

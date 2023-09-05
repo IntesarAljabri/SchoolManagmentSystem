@@ -20,11 +20,10 @@ public class Student {
     String name;
     Long rollNumber;
 
-
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private List<Mark> marks;
+    List<Mark> marks;
 
     @ManyToOne
-    @JoinColumn(name = "schoolId")
-    private School school;
+    @JoinColumn(name = "school-id")
+    School school;
 }
