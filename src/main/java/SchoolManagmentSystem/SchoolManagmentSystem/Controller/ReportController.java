@@ -68,6 +68,41 @@ public class ReportController {
         try {
             String reportPath = report.generateStudentPerformanceReport();
             return ResponseEntity.ok(reportPath);
+        } catch (JRException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error generating report.");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @GetMapping("/schoolStudents")
+    public ResponseEntity<String> StudentSchoolReport() {
+        try {
+            String reportPath = report.StudentSchoolReport();
+            return ResponseEntity.ok(reportPath);
+        } catch (FileNotFoundException | JRException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error generating report.");
+        }
+    }
+
+    @GetMapping("/schoolCourses")
+    public ResponseEntity<String> generateSchoolCoursePerformanceReport() {
+        try {
+            String reportPath = report.generateSchoolCoursePerformanceReport();
+            return ResponseEntity.ok(reportPath);
+        } catch (FileNotFoundException | JRException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error generating report.");
+        }
+    }
+
+    @GetMapping("/schoolPerformance")
+    public ResponseEntity<String> generateSchoolPerformanceReport() {
+        try {
+            String reportPath = report.generateSchoolPerformanceReport();
+            return ResponseEntity.ok(reportPath);
         } catch (FileNotFoundException | JRException e) {
             e.printStackTrace();
             return ResponseEntity.status(500).body("Error generating report.");
